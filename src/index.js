@@ -1,71 +1,27 @@
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
 
-let SkiData = {
-    total: 50,
-    powder: 20,
-    backcountry: 10,
-    goal: 100
-}
-
-const getPercent = decimal => {
-    return decimal*100 + '%'
-}
-
-const calcGoalProgress = (total, goal) => {
-    return getPercent(total/goal)
-}
-
-const SkiDayCounter = ({total, backcountry, powder, goal}) => {
-    return (
+const Book = ({author, title, pages}) => {
+    return(
         <section>
-                <div>
-                    <p>Total Days: {total}</p>
-                </div>
-                <div>
-                    <p>Powder Days: {powder}</p>
-                </div>
-                <div>
-                    <p>Backcountry Days: {backcountry}</p>
-                </div>
-                <div>
-                    <p>Goal Progress: {calcGoalProgress(total, goal)}</p>
-                </div>
-            </section>
+            <h2>{title}</h2>
+            <p>by: {author}</p>
+            <p>Pages: {pages} pages</p>
+        </section>
     )
 }
 
-// class SkiDayCounter extends Component {
-//     getPercent = decimal => {
-//         return decimal * 100 + '%'
-//     }
-
-//     calcGoalProgress = (total, goal) => {
-//         return this.getPercent(total/goal)
-//     }
-
-//     render() {
-//         const {total, powder, backcountry, goal} = this.props;
-//         return (
-//             <section>
-//                 <div>
-//                     <p>Total Days: {total}</p>
-//                 </div>
-//                 <div>
-//                     <p>Powder Days: {powder}</p>
-//                 </div>
-//                 <div>
-//                     <p>Backcountry Days: {backcountry}</p>
-//                 </div>
-//                 <div>
-//                     <p>Goal Progress: {this.calcGoalProgress(total, goal)}</p>
-//                 </div>
-//             </section>
-//         )
-//     }
-// }
+const Library = () => {
+    return(
+        <div>
+            <Book title='The Sun also rises' author='Ernest Hemingway' pages={260} />
+            <Book title='Whute Teeth' author='Zadie Smith' pages={480} />
+            <Book title='Cat`s Cradle' author='Kurt Vonnegut' pages={304} />
+        </div>
+    )
+}
 
 ReactDOM.render(
-    <SkiDayCounter total={SkiData.total} powder={SkiData.powder} backcountry={SkiData.backcountry} goal={SkiData.goal} />,
+    <Library />,
     document.getElementById('root')
 )
