@@ -67,12 +67,12 @@ class Library extends Component {
                 {this.state.loading
                     ? 'loading..'
                     : <div>
-                        {this.state.data.map((product, i) => {
+                        {this.state.data.map(product => {
                             return(
-                                <div key={i}>
+                                <div key={product.id}>
                                     <h3>Library product of the week</h3>
                                     <h4>{product.name}</h4>
-                                    <img src={product.image} height={100} />
+                                    <img alt={product.name} src={product.image} height={100} />
                                 </div>
                             )
                         })}
